@@ -31,6 +31,13 @@ public class CustomerController {
         return  this.customerService.registerNewCustomer(customer);
     }
 
+    @DeleteMapping("/customer/{id}")
+    public CustomerDto deleteCustomerById(@PathVariable("id") Integer customerId)
+    {
+        return this.customerService.deleteCustomerById(customerId);
+
+    }
+
 
 
 

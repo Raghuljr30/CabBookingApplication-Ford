@@ -18,6 +18,7 @@ public class Cab {
     private Integer vehicleNumber;
     private Boolean availability;
     private String agencyName;
+    private Integer driverAgencyId;
     private String pickUpPoint;
     private String dropPoint;
     private Double fair;
@@ -29,8 +30,8 @@ public class Cab {
     {
         super();
     }
-    public Cab(Integer cabId, String cabModel, Boolean AC, Integer numberOfSeats, Integer vehicleNumber, Boolean availability, String agencyName, String pickUpPoint, String dropPoint, Double fair, Driver driver) {
-        super();
+
+    public Cab(Integer cabId, String cabModel, Boolean AC, Integer numberOfSeats, Integer vehicleNumber, Boolean availability, String agencyName, Integer driverAgencyId, String pickUpPoint, String dropPoint, Double fair, Driver driver) {
         this.cabId = cabId;
         this.cabModel = cabModel;
         this.AC = AC;
@@ -38,6 +39,7 @@ public class Cab {
         this.vehicleNumber = vehicleNumber;
         this.availability = availability;
         this.agencyName = agencyName;
+        this.driverAgencyId = driverAgencyId;
         this.pickUpPoint = pickUpPoint;
         this.dropPoint = dropPoint;
         this.fair = fair;
@@ -132,6 +134,14 @@ public class Cab {
         this.driver = driver;
     }
 
+    public Integer getDriverAgencyId() {
+        return driverAgencyId;
+    }
+
+    public void setDriverAgencyId(Integer driverAgencyId) {
+        this.driverAgencyId = driverAgencyId;
+    }
+
     @Override
     public String toString() {
         return "Cab{" +
@@ -142,6 +152,7 @@ public class Cab {
                 ", vehicleNumber=" + vehicleNumber +
                 ", availability=" + availability +
                 ", agencyName='" + agencyName + '\'' +
+                ", driverAgencyId=" + driverAgencyId +
                 ", pickUpPoint='" + pickUpPoint + '\'' +
                 ", dropPoint='" + dropPoint + '\'' +
                 ", fair=" + fair +

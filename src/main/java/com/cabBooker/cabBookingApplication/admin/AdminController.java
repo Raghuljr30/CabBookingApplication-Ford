@@ -50,11 +50,7 @@ public class AdminController {
     }
 
     /** Display all registered CabAgencies*/
-    @GetMapping("/cabagencies")
-    public List<CabAgency> displayCabAgencies()
-    {
-        return this.cabAgencySerivce.displayCabAgency();
-    }
+
 
     /** Display all registered drivers*/
     @GetMapping("/drivers")

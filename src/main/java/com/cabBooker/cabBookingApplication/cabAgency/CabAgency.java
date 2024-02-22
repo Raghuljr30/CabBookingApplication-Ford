@@ -12,7 +12,7 @@ import java.util.List;
 public class CabAgency {
 
     @Id
-    @GeneratedValue
+
     private Integer cabAgencyId;
     private String cabAgencyName;
 

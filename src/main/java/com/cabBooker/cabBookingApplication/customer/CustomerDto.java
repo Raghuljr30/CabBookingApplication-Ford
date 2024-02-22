@@ -1,17 +1,9 @@
 package com.cabBooker.cabBookingApplication.customer;
 
-import com.cabBooker.cabBookingApplication.booking.Booking;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@Entity
-public class Customer {
+public class CustomerDto {
 
     @Id
     @GeneratedValue
@@ -21,24 +13,18 @@ public class Customer {
     private String password;
     private Long mobileNumber;
     private Boolean currentBookingExist=false;
-
-    @OneToMany
-
-    List<Booking> bookings=new ArrayList<>();
-
-    public Customer()
+    public CustomerDto()
     {
-        super();
+
     }
 
-    public Customer(Integer id, String name, String email, String password, Long mobileNumber, Boolean currentBookingExist, List<Booking> bookings) {
+    public CustomerDto(Integer id, String name, String email, String password, Long mobileNumber, Boolean currentBookingExist) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.mobileNumber = mobileNumber;
         this.currentBookingExist = currentBookingExist;
-        this.bookings = bookings;
     }
 
     public Integer getId() {
@@ -81,14 +67,6 @@ public class Customer {
         this.mobileNumber = mobileNumber;
     }
 
-    public List<Booking> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(List<Booking> bookings) {
-        this.bookings = bookings;
-    }
-
     public Boolean getCurrentBookingExist() {
         return currentBookingExist;
     }
@@ -99,14 +77,13 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", mobileNumber=" + mobileNumber +
                 ", currentBookingExist=" + currentBookingExist +
-                ", bookings=" + bookings +
                 '}';
     }
 }

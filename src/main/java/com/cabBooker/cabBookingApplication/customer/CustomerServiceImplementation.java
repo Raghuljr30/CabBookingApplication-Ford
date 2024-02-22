@@ -36,7 +36,21 @@ public class CustomerServiceImplementation implements CustomerService{
         return this.customerRepository.findById(customerId).get();
     }
 
-
-
-
+    @Override
+    public CustomerDto deleteCustomerById(Integer customerId) {
+        Customer deletedCustomer= this.customerRepository.findById(customerId).get();
+        CustomerDto customerDto=new CustomerDto();
+        customerDto.setId(deletedCustomer.getId());
+        customerDto.setName(deletedCustomer.getName());
+        customerDto.setEmail(deletedCustomer.getEmail());
+        customerDto.setMobileNumber(deletedCustomer.getMobileNumber());
+        customerDto.setCurrentBookingExist(deletedCustomer.getCurrentBookingExist());
+        customerDto.setPassword(deletedCustomer.getPassword());
+//        CustomerDto deletedCustomerDto=deletedCustomer;
+        this.customerRepository.deleteById(customerId);
+       return customerDto;
+    }
 }
+
+
+

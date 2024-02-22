@@ -2,19 +2,18 @@ package com.cabBooker.cabBookingApplication.booking;
 
 import com.cabBooker.cabBookingApplication.cab.Cab;
 import com.cabBooker.cabBookingApplication.payment.Payment;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 public class Booking {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer bookingId;
     private String customerName;
+
+    //private Integer customerId;
     private Integer cabNumber;
     @OneToOne
     private Payment payment;

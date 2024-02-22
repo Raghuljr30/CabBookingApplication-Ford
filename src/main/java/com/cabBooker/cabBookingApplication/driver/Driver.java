@@ -21,6 +21,7 @@ public class Driver {
     private Integer driverVehicleNumber;
 
     private String driverAgencyName;
+    private Integer driverAgenycId;
 
     @OneToMany
     private List<Review>reviews=new ArrayList<>();
@@ -30,16 +31,16 @@ public class Driver {
         super();
     }
 
-    public Driver(Integer driverId, String driverName, String driverEmail, String driverPassword, Long driverMobileNumber, Integer licenseNumber,  Integer driverVehicleNumber, String driverAgencyName, List<Review> reviews) {
+    public Driver(Integer driverId, String driverName, String driverEmail, String driverPassword, Long driverMobileNumber, Integer licenseNumber, Integer driverVehicleNumber, String driverAgencyName, Integer driverAgenycId, List<Review> reviews) {
         this.driverId = driverId;
         this.driverName = driverName;
         this.driverEmail = driverEmail;
         this.driverPassword = driverPassword;
         this.driverMobileNumber = driverMobileNumber;
         this.licenseNumber = licenseNumber;
-
         this.driverVehicleNumber = driverVehicleNumber;
         this.driverAgencyName = driverAgencyName;
+        this.driverAgenycId = driverAgenycId;
         this.reviews = reviews;
     }
 
@@ -115,6 +116,14 @@ public class Driver {
         this.driverAgencyName = driverAgencyName;
     }
 
+    public Integer getDriverAgenycId() {
+        return driverAgenycId;
+    }
+
+    public void setDriverAgenycId(Integer driverAgenycId) {
+        this.driverAgenycId = driverAgenycId;
+    }
+
     @Override
     public String toString() {
         return "Driver{" +
@@ -126,6 +135,7 @@ public class Driver {
                 ", licenseNumber=" + licenseNumber +
                 ", driverVehicleNumber=" + driverVehicleNumber +
                 ", driverAgencyName='" + driverAgencyName + '\'' +
+                ", driverAgenycId=" + driverAgenycId +
                 ", reviews=" + reviews +
                 '}';
     }
