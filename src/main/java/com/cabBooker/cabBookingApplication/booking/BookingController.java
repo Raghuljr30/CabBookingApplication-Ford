@@ -18,13 +18,12 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @PatchMapping("/book/{id}/{from}/{to}")
-    public Customer bookCab(@PathVariable("id") Integer customerId, @PathVariable("from")String pickUpLocation,
+    @PatchMapping("/book/{id},{email}/{from}/{to}")
+    public Customer bookCab(@PathVariable("id")Integer customerId ,@PathVariable("email") String customerEmail, @PathVariable("from")String pickUpLocation,
                             @PathVariable("to")String dropLocation)
     {
         return this.bookingService.bookCab(
-                this.customerService.findCustomer(customerId),
-                pickUpLocation,dropLocation);
+                this.customerService.findCustomer(customerId), pickUpLocation,dropLocation,customerEmail);
     }
 
 }

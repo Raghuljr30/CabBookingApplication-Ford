@@ -1,5 +1,7 @@
 package com.cabBooker.cabBookingApplication.cabAgency;
 
+import com.cabBooker.cabBookingApplication.booking.Booking;
+import com.cabBooker.cabBookingApplication.booking.BookingRepository;
 import com.cabBooker.cabBookingApplication.cab.Cab;
 import com.cabBooker.cabBookingApplication.cab.CabRepository;
 import com.cabBooker.cabBookingApplication.driver.Driver;
@@ -11,7 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+
 public class CabAgencyServiceImplementation implements CabAgencySerivce{
+    
+    @Autowired
+    private BookingRepository bookingRepository;
+    
 
     @Autowired
     private CabAgencyRepository cabAgencyRepository;
@@ -44,4 +51,6 @@ public class CabAgencyServiceImplementation implements CabAgencySerivce{
 
         return this.cabAgencyRepository.save(cabAgency);
     }
+
+
 }

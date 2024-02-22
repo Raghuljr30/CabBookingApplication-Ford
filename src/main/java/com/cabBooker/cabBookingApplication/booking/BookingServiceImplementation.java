@@ -23,11 +23,12 @@ public class BookingServiceImplementation implements  BookingService{
     @Autowired
     private BookingRepository bookingRepository;
     @Override
-    public Customer bookCab(Customer customer, String pickUpLocation, String dropLocation) {
-      Cab cab= this.cabRepository.findByPickUpPointAndDropPoint(pickUpLocation,dropLocation);
+    public Customer bookCab(Customer customer,String cutomerEmail, String pickUpLocation, String dropLocation) {
+      List<Cab> cab= this.cabRepository.findByPickUpPointAndDropPoint(pickUpLocation,dropLocation);
+      System.out.println("-------------------"+cab);
       Booking booking=new Booking();
-      booking.setCab(cab);
-      booking.setCabNumber(cab.getVehicleNumber());
+      booking.setCab(cab.get(0));
+      booking.setCabNumber(cab.get(0).getVehicleNumber());
       booking.setCustomerName(customer.getName());
       booking.setPickUpLocation(pickUpLocation);
       booking.setDropLocation(dropLocation);
@@ -41,4 +42,6 @@ public class BookingServiceImplementation implements  BookingService{
 
 
     }
+
+
 }

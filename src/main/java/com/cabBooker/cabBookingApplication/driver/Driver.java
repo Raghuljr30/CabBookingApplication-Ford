@@ -21,6 +21,7 @@ public class Driver {
     private Integer driverVehicleNumber;
 
     private String driverAgencyName;
+    private Integer  driverAgencyId;
 
     @OneToMany
     private List<Review>reviews=new ArrayList<>();
@@ -30,17 +31,25 @@ public class Driver {
         super();
     }
 
-    public Driver(Integer driverId, String driverName, String driverEmail, String driverPassword, Long driverMobileNumber, Integer licenseNumber,  Integer driverVehicleNumber, String driverAgencyName, List<Review> reviews) {
+    public Driver(Integer driverId, String driverName, String driverEmail, String driverPassword, Long driverMobileNumber, Integer licenseNumber, Integer driverVehicleNumber, String driverAgencyName, Integer driverAgencyId, List<Review> reviews) {
         this.driverId = driverId;
         this.driverName = driverName;
         this.driverEmail = driverEmail;
         this.driverPassword = driverPassword;
         this.driverMobileNumber = driverMobileNumber;
         this.licenseNumber = licenseNumber;
-
         this.driverVehicleNumber = driverVehicleNumber;
         this.driverAgencyName = driverAgencyName;
+        this.driverAgencyId = driverAgencyId;
         this.reviews = reviews;
+    }
+
+    public Integer getDriverAgencyId() {
+        return driverAgencyId;
+    }
+
+    public void setDriverAgencyId(Integer driverAgencyId) {
+        this.driverAgencyId = driverAgencyId;
     }
 
     public Integer getDriverId() {
@@ -126,6 +135,7 @@ public class Driver {
                 ", licenseNumber=" + licenseNumber +
                 ", driverVehicleNumber=" + driverVehicleNumber +
                 ", driverAgencyName='" + driverAgencyName + '\'' +
+                ", driverAgencyId='" + driverAgencyId + '\'' +
                 ", reviews=" + reviews +
                 '}';
     }

@@ -26,6 +26,10 @@ public class CabServiceImplementation implements CabService{
         return this.cabRepository.findAll();
     }
 
+    public List<Cab> availableCabs(){
+        return this.cabRepository.findAll();
+    }
+
     @Override
     public Cab mapCabAndDriver(Integer vehicleNumber, Integer driverVehiclenumber) {
 
@@ -36,6 +40,14 @@ public class CabServiceImplementation implements CabService{
 
 
 
+
+    }
+
+    @Override
+    public List<Cab> availableCabs(String pickupPoint, String dropPoint) {
+
+        System.out.println(this.cabRepository.findByPickUpPointAndDropPoint(pickupPoint,dropPoint));
+        return this.cabRepository.findByPickUpPointAndDropPoint(pickupPoint,dropPoint);
 
     }
 }

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CabController {
 
@@ -26,5 +28,10 @@ public class CabController {
                                @PathVariable("drivervehiclenumber")Integer drivervehiclenumber)
     {
         return this.cabService.mapCabAndDriver(vehicleNumber,drivervehiclenumber);
+    }
+
+    @GetMapping("/cabs/{pickUpPoint}/{dropPoint}")
+    public List<Cab> availableCabs(@PathVariable("pickUpPoint") String pickupPoint, @PathVariable("dropPoint") String dropPoint){
+        return this.cabService.availableCabs(pickupPoint,dropPoint);
     }
 }
