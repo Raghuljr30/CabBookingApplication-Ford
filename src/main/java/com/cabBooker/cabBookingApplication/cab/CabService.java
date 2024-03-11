@@ -8,4 +8,6 @@ public interface CabService {
     public List<Cab> displayAllCabs();
 
     public Cab mapCabAndDriver(Integer vehicleNumber, Integer driverVehiclenumber);
+
+
 }

@@ -4,4 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CabAgencyRepository extends JpaRepository<CabAgency,Integer> {
     CabAgency findByCabAgencyName(String cabAgencyName);
+
 }

@@ -22,6 +22,16 @@ public class Cab {
     private String dropPoint;
     private Double fair;
 
+    public Integer getCabAgencyId() {
+        return cabAgencyId;
+    }
+
+    public void setCabAgencyId(Integer cabAgencyId) {
+        this.cabAgencyId = cabAgencyId;
+    }
+
+    private Integer cabAgencyId;
+
     @OneToOne
     private Driver driver;
 
@@ -29,7 +39,7 @@ public class Cab {
     {
         super();
     }
-    public Cab(Integer cabId, String cabModel, Boolean AC, Integer numberOfSeats, Integer vehicleNumber, Boolean availability, String agencyName, String pickUpPoint, String dropPoint, Double fair, Driver driver) {
+    public Cab(Integer cabId, String cabModel, Boolean AC, Integer numberOfSeats, Integer vehicleNumber, Boolean availability, String agencyName, String pickUpPoint, String dropPoint, Double fair, Driver driver,Integer cabAgencyId) {
         super();
         this.cabId = cabId;
         this.cabModel = cabModel;
@@ -42,6 +52,7 @@ public class Cab {
         this.dropPoint = dropPoint;
         this.fair = fair;
         this.driver = driver;
+        this.cabAgencyId = cabAgencyId;
     }
 
     public Integer getCabId() {
@@ -146,6 +157,7 @@ public class Cab {
                 ", dropPoint='" + dropPoint + '\'' +
                 ", fair=" + fair +
                 ", driver=" + driver +
+                "cabAgencyId="+cabAgencyId+
                 '}';
     }
 }
