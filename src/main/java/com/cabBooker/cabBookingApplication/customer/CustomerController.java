@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class CustomerController {
 
@@ -29,6 +30,13 @@ public class CustomerController {
     public Customer registerCustomer(@RequestBody Customer customer)
     {
         return  this.customerService.registerNewCustomer(customer);
+    }
+
+    @PostMapping("/customer/login/{id}/{email}/{password}")
+    public Boolean loginCustomer(@PathVariable("id")Integer id, @PathVariable("email")String email,
+                                 @PathVariable("password")String password)
+    {
+        return this.customerService.loginCustomer(id,email,password);
     }
 
     @DeleteMapping("/customer/{id}")

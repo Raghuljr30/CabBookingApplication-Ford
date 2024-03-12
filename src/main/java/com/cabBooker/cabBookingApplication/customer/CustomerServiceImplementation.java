@@ -4,6 +4,7 @@ import com.cabBooker.cabBookingApplication.booking.Booking;
 import com.cabBooker.cabBookingApplication.booking.BookingRepository;
 import com.cabBooker.cabBookingApplication.cab.Cab;
 import com.cabBooker.cabBookingApplication.cab.CabRepository;
+import com.cabBooker.cabBookingApplication.cabAgency.CabAgency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,19 @@ public class CustomerServiceImplementation implements CustomerService{
     @Override
     public Customer registerNewCustomer(Customer customer) {
         return this.customerRepository.save(customer);
+    }
+
+    @Override
+    public Boolean loginCustomer(Integer id, String email, String password) {
+
+        Customer customerRegistered= customerRepository.findByIdAndEmailAndPassword(id,email,password);
+        if(customerRegistered==null)
+        {
+            return false;
+        }
+        return true;
+
+
     }
 
     @Override

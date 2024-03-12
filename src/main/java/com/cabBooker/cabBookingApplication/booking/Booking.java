@@ -3,9 +3,11 @@ package com.cabBooker.cabBookingApplication.booking;
 import com.cabBooker.cabBookingApplication.cab.Cab;
 import com.cabBooker.cabBookingApplication.payment.Payment;
 import jakarta.persistence.*;
+import lombok.Builder;
 
 import java.time.LocalDate;
 
+@Builder
 @Entity
 public class Booking {
     @Id
@@ -22,7 +24,8 @@ public class Booking {
     private String pickUpLocation;
     private String dropLocation;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "cabId")
     private Cab cab;
 
     public Booking()

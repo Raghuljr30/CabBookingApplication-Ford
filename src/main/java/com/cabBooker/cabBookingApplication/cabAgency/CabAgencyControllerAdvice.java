@@ -6,7 +6,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class CabControllerAdvice {
+public class CabAgencyControllerAdvice {
+
+    @ExceptionHandler(value = { CabAgencyCreationException.class})
+    public ResponseEntity<String> handleNullValueCreationException(CabAgencyCreationException e)
+    {
+        return new ResponseEntity<String>("Cab agency is null", HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(value = { CabAgencyMissingInputFieldException.class})
     public ResponseEntity<String> handleNullValueException(CabAgencyMissingInputFieldException e)
@@ -20,5 +26,12 @@ public class CabControllerAdvice {
     {
         return new ResponseEntity<String>("No such Cab Agency found",HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(value = {CabNotFoundInCabAgencyException.class})
+    public ResponseEntity<String> handleCabNotFoundException( CabNotFoundInCabAgencyException e)
+    {
+        return new ResponseEntity<String>("No such Cab found int the cab agency",HttpStatus.BAD_REQUEST);
+    }
+
 
 }
