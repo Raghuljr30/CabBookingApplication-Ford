@@ -1,5 +1,6 @@
 package com.cabBooker.cabBookingApplication.customer;
 
+import com.cabBooker.cabBookingApplication.booking.Booking;
 import com.cabBooker.cabBookingApplication.booking.BookingService;
 import com.cabBooker.cabBookingApplication.cabAgency.CabAgency;
 import com.cabBooker.cabBookingApplication.cabAgency.CabAgencySerivce;
@@ -8,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:4200"})
 @RestController
 public class CustomerController {
 
@@ -44,6 +46,12 @@ public class CustomerController {
     {
         return this.customerService.deleteCustomerById(customerId);
 
+    }
+
+    @GetMapping("/customer/currentBooking/{customerId}")
+    public Booking displayCurrentBooking(@PathVariable("customerId")Integer customerId)
+    {
+        return this.customerService.displayCurrentBooking(customerId);
     }
 
 

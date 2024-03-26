@@ -23,7 +23,7 @@ public class Customer {
     private String email;
     private String password;
     private Long mobileNumber;
-    private Boolean currentBookingExist;
+    private Boolean currentBookingExist=false;
 
 
     @Builder.Default

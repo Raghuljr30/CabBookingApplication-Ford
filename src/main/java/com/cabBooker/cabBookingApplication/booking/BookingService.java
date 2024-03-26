@@ -15,8 +15,13 @@ public interface BookingService {
     public Booking deleteBookingById(Integer bookingId,Integer customerId) throws CustomerNotFoundException,BookingNotFoundException;
 //    public Customer bookCab(Customer customer);
 
+    public List<Booking> displayAllCurrentBookingsOfCabAgency(Integer CabAgencyId);
+    public List<Booking> displayAllBookingsOfCabAgency(Integer cabAgencyId);
+
     public List<Cab> displayAllAvailableCabs();
     public List<Cab> searchAvailableCabsByLocation(String fromLocation,String toLocation);
+
+
 }
 
 

@@ -4,6 +4,10 @@ import com.cabBooker.cabBookingApplication.cab.Cab;
 import com.cabBooker.cabBookingApplication.booking.Booking;
 import com.cabBooker.cabBookingApplication.driver.Driver;
 import jakarta.persistence.*;
+
+
+
+
 import lombok.*;
 
 import java.util.ArrayList;
@@ -20,10 +24,17 @@ public class CabAgency {
     @Id
     @GeneratedValue
     private Integer cabAgencyId;
+
+   
     private String cabAgencyName;
 
+
+
     private String cabAgencyEmail;
+
+
     private String cabAgencyPassword;
+
 
     private Long cabAgencyMobileNumber;
 //

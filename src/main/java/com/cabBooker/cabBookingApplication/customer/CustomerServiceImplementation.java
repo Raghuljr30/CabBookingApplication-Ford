@@ -8,7 +8,9 @@ import com.cabBooker.cabBookingApplication.cabAgency.CabAgency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Book;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerServiceImplementation implements CustomerService{
@@ -63,6 +65,22 @@ public class CustomerServiceImplementation implements CustomerService{
 //        CustomerDto deletedCustomerDto=deletedCustomer;
         this.customerRepository.deleteById(customerId);
        return customerDto;
+    }
+
+    @Override
+    public Booking displayCurrentBooking(Integer customerId) {
+        Optional<Customer>customer= this.customerRepository.findById(customerId);
+
+        Customer customerExist=customer.get();
+        if(customerExist.getCurrentBookingExist())
+        {
+            List<Booking> customerBookings= customerExist.getBookings();
+            Booking currentBooking=customerBookings.get(customerBookings.size()-1);
+            return currentBooking;
+        }
+        return null;
+
+
     }
 }
 

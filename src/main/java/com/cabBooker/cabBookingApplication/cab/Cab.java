@@ -3,6 +3,7 @@ package com.cabBooker.cabBookingApplication.cab;
 import com.cabBooker.cabBookingApplication.cabAgency.CabAgency;
 import com.cabBooker.cabBookingApplication.driver.Driver;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Builder
@@ -15,17 +16,28 @@ public class Cab {
 
     @Id
     @GeneratedValue
+
     private Integer cabId;
+
     private String cabModel;
+
     private Boolean ac;
+
     private Integer numberOfSeats;
+
+
     private Integer vehicleNumber;
+
     private Boolean availability;
+
     private String agencyName;
 
     private Integer cabAgencyId;
+
     private String pickUpPoint;
+
     private String dropPoint;
+
     private Double fair;
 
 

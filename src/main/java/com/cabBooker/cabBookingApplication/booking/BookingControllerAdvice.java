@@ -37,7 +37,7 @@ public class BookingControllerAdvice {
     @ExceptionHandler(value = {CustomerCurrentBookingExistException.class})
     public ResponseEntity<String> handleCustomerCurrentBookingExistException(CustomerCurrentBookingExistException e)
     {
-        return new ResponseEntity<String>("Booking currently exit.Cannot perform new Booking", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<String>("Booking currently exist.Cannot perform new Booking!!!", HttpStatus.BAD_REQUEST);
     }
 
 
