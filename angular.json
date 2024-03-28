@@ -11,6 +11,7 @@
       "prefix": "app",
       "architect": {
         "build": {
+        
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/my-cab-app",
@@ -25,9 +26,12 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
+            
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -91,5 +95,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

@@ -1,0 +1,110 @@
+
+<div *ngIf="success" class="alert alert-success">
+  <p> {{success}}</p>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">
+  <p> {{errorMessage}}</p>
+</div>
+
+
+<section class="vh-200 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 20px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" type="text" name="dName"  #nameRef="ngModel" placeholder="Name" required pattern="[A-Za-z]{5,}" [(ngModel)]= "newDriver.driverName"/>
+                  <label class="form-label" for="form3Example1cg">Your Name</label>
+                  <div *ngIf="nameRef.invalid && (nameRef.touched || nameRef.dirty)">
+                    <p *ngIf="nameRef.errors?.['required']" class="text-danger">This is a mandotary field!</p>
+                    <p *ngIf="nameRef.errors?.['pattern']" class="text-danger">Only characters allowed with min length of 5</p>
+                </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input  name="dMail"  #mailRef="ngModel" min=0 placeholder="E-mail" required [(ngModel)]= "newDriver.driverEmail" type="email" id="form3Example3cg" class="form-control form-control-lg" pattern="[A-Za-z0-9._]{3,}[@A-Za-z]{3,}.[a-z]{2,3}"/>
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <div *ngIf="mailRef.invalid && (mailRef.touched || mailRef.dirty)">
+                    <p *ngIf="mailRef.errors?.['required']" class="text-danger">This is a mandotary field!</p>
+                    <p *ngIf="mailRef.errors?.['pattern']" class="text-danger">Email is required ,but it is blank</p>
+                </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" name="dPass" #passRef="ngModel" min=0 placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#&%$_]).{5,}" [(ngModel)]= "newDriver.driverPassword"/>
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                  <div *ngIf="passRef.invalid && (passRef.touched || passRef.dirty)">
+                    <p *ngIf="passRef.errors?.['required']" class="text-danger">This is a mandotary field!</p>
+                    <p *ngIf="passRef.errors?.['pattern']" class="text-danger">Password is required ,can't be blank</p>
+                    <p *ngIf="passRef.errors?.['pattern']" class="text-danger">Must contain at least one  number and one uppercase and lowercase letter and one special characters, and atleast 5 or more characters  </p>
+            
+                </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="string" name="dNumber"  #numRef="ngModel" min=0 placeholder="Mobile Number" required id="form3Example5cg" class="form-control form-control-lg" placeholder=" Mobile Number" required [(ngModel)]= "newDriver.driverMobileNumber" pattern="[0-9]{10}"/>
+                  <label class="form-label" for="form3Example5cg">Mobile Number</label>
+                  <div *ngIf="numRef.invalid && (numRef.touched || numRef.dirty)">
+                    <p *ngIf="numRef.errors?.['required']" class="text-danger">This is a mandotary field!</p>
+                    <p *ngIf="numRef.errors?.['pattern']" class="text-danger">Mobile number must be of 10 digits</p>
+                </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="string" id="form3Example6cg" class="form-control form-control-lg" name="dVnumber"  #vehRef="ngModel" placeholder="Vehicle Number" required [(ngModel)]= "newDriver.driverVehicleNumber"/>
+                  <label class="form-label" for="form3Example6cg">Vehicle Number</label>
+                  <div *ngIf="vehRef.invalid && (vehRef.touched || vehRef.dirty)">
+                    <p *ngIf="vehRef.errors?.['required']" class="text-danger">This is a mandotary field!</p>
+                    <p *ngIf="vehRef.errors?.['pattern']" class="text-danger">Vehicle number is required, can't be blank</p>
+                </div>
+                  
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example7cg" class="form-control form-control-lg" type="string" id="dLicense" name="dLicense"  #licRef="ngModel" placeholder="License Number" required [(ngModel)]= "newDriver.licenseNumber"/>
+                  <label class="form-label" for="form3Example7cg">License Number</label>
+                  <div *ngIf="licRef.invalid && (licRef.touched || licRef.dirty)">
+                    <p *ngIf="licRef.errors?.['required']" class="text-danger">This is a mandotary field!</p>
+                    <p *ngIf="licRef.errors?.['pattern']" class="text-danger">License number is required, can't be blank</p>
+                </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <select class="btn btn-secondary dropdown-toggle" [(ngModel)]= "selectedAgency" (change)= "updateOtherField()" placeholder="Cab Agency" [ngModelOptions]="{standalone: true}">
+                  <option value="" disabled selected> Cab Agency</option>
+                  <option [ngValue]='"Ola"'>Ola</option>
+                  <option [ngValue]='"Uber"'>Uber</option>
+                  <option [ngValue]='"Rapido"'>Rapido</option>
+                  <option [ngValue]='"Namma Yatri"'>Namma Yatri</option>
+                  <option [ngValue]='"CabKaro"'>CabKaro</option>
+                  <option [ngValue]='"UberLite"'>UberLite</option>
+                  <option [ngValue]='"Yatri Sathi"'>Yatri Sathi</option>
+                </select><br>
+                <label class="form-label" for="form3Example4cg">Cab Agency</label>
+              </div>
+
+                <div class="d-flex justify-content-center">
+                  <input type="button"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click)= "addNewDriver()" value="Register">
+                </div>
+
+                <div class="d-flex justify-content-center" *ngIf="isRegistered">
+                  <a routerLink="/home" routerLinkActive="active">Login</a>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,157 @@
+
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="/logged-in">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src= "https://th.bing.com/th?id=OIP.w2McZSq-EYWxh02iSvC3xwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=2&pid=3.1&rm=2" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{updateDriver.driverName}}</h5>
+              <p class="text-muted mb-1">My Id:{{updateDriver.driverId}}</p>
+              <p class="text-muted mb-4">{{updateDriver.driverEmail}}</p>
+              <p class="text-muted mb-4">{{updateDriver.driverMobileNumber}}</p>
+            </div>
+          </div>
+          <div class="card mb-4 mb-lg-0">
+            <div class="card-body p-0">
+              <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fas fa-globe fa-lg text-warning"></i>
+                  <p class="mb-0"></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{updateDriver.driverName}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{updateDriver.driverEmail}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{updateDriver.driverMobileNumber}}</p>
+                  <div *ngIf="isUpdateClicked"><button  (click)="Number()">Edit </button></div>
+                 <div *ngIf="isNumber" ><input type="text" name="phone" placeholder="Enter your new Phone Number" [(ngModel)]= "newNumber">
+                  <button (click)="updateNumber()">Update</button>
+                </div>
+              </div> </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Password</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">*******</p>
+                  <div *ngIf="isUpdateClicked" ><button value="update" (click)="Password()">Edit </button> </div>
+                   <div *ngIf="isPassword"><input type="password" name="password" placeholder="Enter your new Password" [(ngModel)]= "newPassword">
+                    <button (click)="updatePassword()">Update</button>
+                  </div> 
+               </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Cab Agency Id</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{updateDriver.driverAgencyId}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Cab Agency Name</p>
+                </div>
+                <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{updateDriver.driverAgencyName}}</p>
+                    <div *ngIf="isUpdateClicked" ><button value="update" (click)="Agency()">Edit</button></div>
+                   <div *ngIf="isAgency">
+                  <p class="text-muted mb-0">{{updateDriver.driverAgencyName}}</p>
+                  <select class="btn btn-secondary dropdown-toggle" [(ngModel)]= "selectedAgency" (change)= "updateAgency()" placeholder="Cab Agency" [ngModelOptions]="{standalone: true}">
+                    <option value="" disabled selected> Cab Agency</option>
+                    <option [ngValue]='"Ola"'>Ola</option>
+                    <option [ngValue]='"Uber"'>Uber</option>
+                    <option [ngValue]='"Rapido"'>Rapido</option>
+                    <option [ngValue]='"Namma Yatri"'>Namma Yatri</option>
+                    <option [ngValue]='"CabKaro"'>CabKaro</option>
+                    <option [ngValue]='"UberLite"'>UberLite</option>
+                    <option [ngValue]='"Yatri Sathi"'>Yatri Sathi</option>
+                  </select>
+               
+                <button (click)="updateAgency()">Update</button>
+              </div>
+                </div>
+                </div>
+          
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Vehicle Number</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{updateDriver.driverVehicleNumber}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">License Number</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{updateDriver.licenseNumber}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <button (click)="update()">Edit Profile</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </section>
+
+

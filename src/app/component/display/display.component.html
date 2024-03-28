@@ -1,0 +1,30 @@
+
+<table *ngIf="drivers.length >0" class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Mobile Number</th>
+      <th>License Number</th>
+      <th>Vehicle Number</th>
+      <th>Agency Name</th>
+      <th>AgencyId</th>
+    </tr>
+  </thead>
+    
+  
+    <tr *ngFor= 'let driver of drivers; let i=index'>
+        <td>{{driver.driverId}}</td>
+        <td>{{driver.driverName}}</td>
+        <td>{{driver.driverEmail}}</td>
+        <td>{{driver.driverPassword}}</td>
+        <td>{{driver.driverMobileNumber}}</td>
+        <td>{{driver.licenseNumber}}</td>
+        <td>{{driver.driverVehicleNumber}}</td>
+        <td>{{driver.driverAgencyName}}</td>
+        <td>{{driver.driverAgencyId}}</td>
+    </tr>
+  
+  </table>

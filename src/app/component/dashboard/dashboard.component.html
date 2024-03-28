@@ -1,0 +1,44 @@
+<div>
+  <h2>Profile</h2>
+  
+    <!-- Update Password Form -->
+    <form (ngSubmit)="updatePassword()">
+      <label for="currentPassword">Current Password:</label>
+      <input type="password" id="currentPassword" name="currentPassword" required>
+      
+      <label for="newPassword">New Password:</label>
+      <input type="password" id="newPassword" name="newPassword" required>
+      
+      <button type="submit">Update Password</button>
+    </form>
+    
+    <!-- Update Agency ID and Name Form -->
+    <form >
+      <label for="agencyId">Agency ID:</label>
+      <input type="select" id="agencyId" name="agencyId" required>
+    
+      <label for="agencyName">Agency Name:</label>
+      <input type="text" id="agencyName" name="agencyName" required>
+      
+      <button type="submit">Update Agency Details</button>
+    </form>
+    
+    <!-- Change Agency Form -->
+    <form (ngSubmit)="changeAgency(id,agencyname,agencyId)">
+      <label for="newAgencyId">New Agency ID:</label>
+      <input type="text" id="newAgencyId" name="newAgencyId" [(ngModel)]="updateDriver.driverAgencyId" required>
+      
+      <label for="newAgencyName">New Agency Name:</label>
+      <input type="text" id="newAgencyName" name="newAgencyName" [(ngModel)]="updateDriver.driverAgencyName" required>
+      
+      <button type="submit">Change Agency</button>
+      <select name="Agency" id="agency">
+        <option id="1" value="volvo">Ola</option>
+        <option id="2" value="saab">Rapido</option>
+        <option id="3" value="opel">Namma Yatra</option>
+        <option id="4" value="audi">Uber</option>
+        <option id="5" value="audi">CabKaro</option>
+      </select>
+    </form>
+  </div>
+  

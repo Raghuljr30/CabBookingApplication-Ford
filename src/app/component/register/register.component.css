@@ -1,0 +1,22 @@
+.alert-success {
+    background-color: #d4edda; /* Light green background color */
+    color: #155724; /* Dark green text color */
+    padding: 15px; /* Padding around the text */
+    border: 1px solid #c3e6cb; /* Light green border */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 15px; /* Bottom margin */
+    font-size: 16px; /* Font size */
+    line-height: 1.5; /* Line height */
+    text-align: center; /* Center align text */
+}
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+    

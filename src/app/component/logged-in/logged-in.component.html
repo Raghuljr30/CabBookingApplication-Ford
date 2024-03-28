@@ -1,0 +1,54 @@
+
+  <app-navbar></app-navbar>    
+
+            <h1 class="text-center">My Details</h1>
+      <div *ngFor= 'let booking of bookings; let i=index'>
+        <div class="card border-info mb-3" style="max-width: 18rem;">
+          <div class="card-header">Booking: {{booking.bookingId }}</div>
+          <div class="card-body text-info">
+            <h5 class="card-title">Customer Name: {{ booking.customerName }}</h5>
+            <p class="card-text">Cab Number: {{ booking.cabNumber }}</p>
+            <p class="card-text">Booked on: {{ booking.bookingDate}}</p>
+            <p class="card-text">From: {{ booking.pickUpLocation }}</p>
+            <p class="card-text">To: {{ booking.dropLocation }}</p>
+            </div>
+          </div>
+        </div>
+
+
+   <!-- <div *ngFor= 'let cab of cabs; let i=index'>
+      <p>Cab ID{{cab.cabId}}</p>
+      <p>Cab Model: {{ cab.cabModel }}</p>
+      <p>AC: {{ cab.ac }}</p>
+      <p>Number of Seats: {{ cab.numberOfSeats }}</p>
+      <p>Vehicle Number: {{ cab.vehicleNumber }}</p>
+      <p>Availability: {{ cab.availability }}</p>
+      <p>Agency Name: {{ cab.agencyName }}</p>
+      <p>Cab Agency ID: {{ cab.cabAgencyId }}</p>
+      <p>Pick-Up Point: {{ cab.pickUpPoint }}</p>
+      <p>Drop Point: {{ cab.dropPoint }}</p>
+      <p>Fare: {{ cab.fair }}</p>
+    </div>
+
+-->
+  <div *ngFor= 'let review of reviews; let i=index'>
+    <div *ngFor= 'let booking of bookings; let i=index'>
+      <div class="card border-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Review ID: {{review.reviewId}}</div>
+        <div class="card-body text-info">
+          <h5 class="card-title">Review: {{review.review}}</h5>
+          <p class="card-text">Reviewed By: {{review.reviewedBy}}</p>
+          <p class="card-text">Booking Id: {{review.bookingId}}</p>
+          </div>
+        </div>
+      </div>
+   
+
+   <!--  
+      <div>
+        <button (click)="showDrivers()">Show drivers</button>
+        
+        <input type="drivers" name="drivers" [(ngModel)]= "agencyName">
+        </div>
+-->
+<h2 class=text-center *ngIf= "isempty">Oops! No History of Bookings! Start now!!</h2>
