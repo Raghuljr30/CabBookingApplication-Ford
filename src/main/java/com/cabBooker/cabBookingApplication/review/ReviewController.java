@@ -14,13 +14,21 @@ public class ReviewController {
 
     @Autowired
     private ReviewService reviewService;
-    @PatchMapping("/addreivew/{customerId}/{bookingId}/{review}")
-    public Customer addReview(@PathVariable("customerId") Integer customerId,
-                              @PathVariable("bookingId")Integer bookingId,
-                              @PathVariable("review")String review)
-    {
-       return this.reviewService.addReview(customerId,bookingId,review);
+//    @PatchMapping("/addreivew/{customerId}/{bookingId}/{review}")
+//    public Customer addReview(@PathVariable("customerId") Integer customerId,
+//                              @PathVariable("bookingId")Integer bookingId,
+//                              @PathVariable("review")String review)
+//    {
+//       return this.reviewService.addReview(customerId,bookingId,review);
+//
+//    }
 
+    @PatchMapping("review/booking/{customerId}/{bookingId}/{customerReview}")
+    public Review addReview(@PathVariable("customerId") Integer customerId,
+                            @PathVariable("bookingId") Integer bookingId,
+                            @PathVariable("customerReview")String customerReview)throws ReviewException
+    {
+        return this.reviewService.addReview(customerId,bookingId,customerReview);
     }
 
     @GetMapping("reviews")

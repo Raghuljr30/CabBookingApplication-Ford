@@ -8,4 +8,6 @@ import java.util.List;
 @Service
 public interface ReviewRepository extends JpaRepository<Review,Integer> {
     List<Review> findByReviewedByAndBookingId(Integer reviewedBy,Integer bookingId);
+
+
 }

@@ -7,4 +7,6 @@ import java.util.List;
 public interface BookingRepository extends JpaRepository<Booking,Integer> {
 
     List<Booking> findByCustomerName(String customerName);
+
+
 }

@@ -27,7 +27,7 @@ public class CabAgencyServiceImplementation implements CabAgencySerivce {
     @Override
     public CabAgency registerNewCabAgency(CabAgency newcabAgency) throws CabAgencyMissingInputFieldException,CabAgencyCreationException {
 
-        if(newcabAgency.getCabAgencyId()==null) throw new CabAgencyCreationException("");
+       // if(newcabAgency.getCabAgencyId()==null) throw new CabAgencyCreationException("");
         if (newcabAgency.getCabAgencyName() == null
                 || newcabAgency.getCabAgencyEmail() == null || newcabAgency.getCabAgencyPassword() == null
                 || newcabAgency.getCabAgencyMobileNumber() == null)

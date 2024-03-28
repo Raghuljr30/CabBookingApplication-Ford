@@ -1,5 +1,6 @@
 package com.cabBooker.cabBookingApplication.review;
 
+import com.cabBooker.cabBookingApplication.booking.Booking;
 import com.cabBooker.cabBookingApplication.customer.Customer;
 import com.cabBooker.cabBookingApplication.customer.CustomerRepository;
 import com.cabBooker.cabBookingApplication.driver.Driver;
@@ -21,41 +22,37 @@ public class ReviewServiceImplementation implements ReviewService{
     @Autowired
     private DriverRepository driverRepository;
     @Override
-    public Customer addReview(Integer customerId, Integer bookingId,String review) {
-
-        Optional<Customer> customer= this.customerRepository.findById(customerId);
-        Customer customerExist= customer.get();
-        Review review1=new Review();
-        review1.setReviewedBy(customerId);
-        review1.setReview(review);
-        review1.setBookingId(bookingId);
+    public Review addReview(Integer customerId, Integer bookingId, String customerReview)throws ReviewException {
 
 
-        this.reviewRepository.save(review1);
+            Optional<Customer> customer=this.customerRepository.findById(customerId);
+            Customer customerExist=customer.get();
+            List<Booking> bookingByCustomers=customerExist.getBookings();
+            Review review=new Review();
+            review.setReviewedBy(customerId);
+            review.setReview(customerReview);
+            review.setBookingId(bookingId);
+            if(review.getReviewedBy()!=customerId||review.getBookingId()!=bookingId){
+                throw new ReviewException("input field mis match enter a correct input");
+            }
 
-        List<Review> reviewByCustomer= findListOfReviews(customerId,bookingId);
+            this.reviewRepository.save(review);
 
-        customerExist.getBookings().stream().filter(booking->
-                booking.getBookingId()==bookingId).forEach(
-                        booking -> booking.getCab().
-                                getDriver().
-                                setReviews(reviewByCustomer));
+            List<Review> listOfReviews= findByReview(customerId,bookingId);
+            System.out.println(listOfReviews+"-----------------------------------------------------");
 
+            customerExist.getBookings().stream().filter(booking -> booking.getBookingId()==bookingId).
+                    forEach(booking -> booking.getCab().getDriver().setReviews(listOfReviews));
+            customerRepository.save(customerExist);
 
+            return review;
 
-//
-//        Driver driver =customerExist.getBookings().stream().filter(booking->
-//                booking.getBookingId()==bookingId).forEach(
-//                booking -> booking.getCab().
-//                        getDriver()).
-//        this.driverRepository.save();
+        }
+        private List<Review> findByReview(Integer reviewedBy, Integer bookingId)  {
 
-        return customerExist;
+            return this.reviewRepository.findByReviewedByAndBookingId(reviewedBy,bookingId);
+        }
 
-
-
-
-    }
 
     @Override
     public List<Review> displayReviews() {
