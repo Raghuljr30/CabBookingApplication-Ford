@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+<!-- <style>
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="number"],
+    
+    
+    input[type="password"],
+ button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+   button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+    </head> -->
+
+
+    <!-- <body> -->
+       
+
+ <!-- <div class="container">
+    <h2 style="text-align: center;font-weight: bold;">Login</h2>
+    <form class="loginform"> 
+        <label for="id">Customer Id</label> <br>
+        <input type="number" name="name" placeholder="id" required [(ngModel)]="id" placeholder="Id"> <br>
+        <label for="password">Password</label>
+        <input type="password" name="d" placeholder="Password" required [(ngModel)]="password" aria-placeholder="Password"><br>
+        <button class="buttonForLogin" (click)="login()">Login</button>
+        <div *ngIf="successMessage" class="alert-alert-success">{{ successMessage }}</div>
+
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+    </form>
+
+    <div>
+        New Customer? <a routerLink="/signUp" routerLinkActive="active">Register Here!</a>
+    </div>
+    
+</div> -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center font-weight-bold">Login</h2>
+            <form class="loginform">
+                <div class="form-group">
+                    <label for="id">Customer Id</label>
+                    <input type="number" class="form-control" name="id" placeholder="Enter Id" required [(ngModel)]="id">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required [(ngModel)]="password">
+                </div>
+                <button type="button" class="btn btn-primary btn-block" (click)="login()">Login</button>
+                <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+                <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+            </form>
+            <p class="mt-3">New Customer? <a routerLink="/signUp" routerLinkActive="active">Register Here!</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- </body> -->
+
+
+
+
+

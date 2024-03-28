@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+ div{
+    background-color: rgb(240, 236, 236);
+    padding: 10px;
+    margin: 20px;
+ } 
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .flex-container {
+    display: flex;
+    grid-template-columns: 33% 33% 33%;
+  }  
