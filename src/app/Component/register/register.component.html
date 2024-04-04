@@ -1,0 +1,68 @@
+<p>Registering new cabs</p>
+
+<div>
+    <h3> Add new Cab:</h3>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    <form>
+        
+        <label for="CabModel">CabModel</label><br>
+        <input type="text" id="name" name="name" [(ngModel)]="newCab.cabModel" required title="Please enter text" ><br>
+       
+        <label for="AC">AC</label><br>
+        <select name="AC" id="AC" [(ngModel)]="newCab.AC" value="ac" required title="please select required option">
+            <option value="true">true</option>
+            <option value="false">false</option>
+            
+        </select><br>
+       <!---- <input type="dropdown" id="name" name="name" [(ngModel)]="newCab.AC" required ><br>-->
+      
+
+        
+       
+        <label for="Number of seats">Number of seats</label><br>
+        <input type="number" id="number" name="seats" [(ngModel)]="newCab.numberOfSeats" required><br>
+
+        <label for="vehicleNumber">vehicleNumber</label><br>
+        <input type="number" id="number" name="vehicleNumber" [(ngModel)]="newCab.vehicleNumber" required><br>
+
+        <label for="availability">availability</label><br>
+        
+
+        <select name="availability" id="availability" [(ngModel)]="newCab.availability" required>
+                   <option value="true">true</option>
+                   <option value="false">false</option>
+                   
+        </select><br>
+
+        <label for="pickuppoint">PickUpPoint</label><br>
+        <input type="name" id="name" name="pickuppoint" [(ngModel)]="newCab.pickUpPoint" required><br>
+
+        <label for="dropPoint">DropPoint</label><br>
+        <input type="name" id="name" name="dropPoint" [(ngModel)]="newCab.dropPoint" required><br>
+
+        <label for="fair">Fair</label><br>
+        <input type="number" id="fair" name="fair" [(ngModel)]="newCab.fair" required title="please enter a number"><br>
+
+        <label for="CabAgencyId">CabAgencyID</label><br>
+        <input type="number" id="ID" name="ID" [(ngModel)]="newCab.cabAgencyId" required><br>
+        <label for="CabAgency">AgencyName</label><br>
+        <input type="name"  id="agency" name="agency" [(ngModel)]="newCab.agencyName" required><br>
+        
+
+        
+
+        
+
+  <input type="submit" (click)="registerNewUser()"  class="btn btn-success" value="Register new Cab">
+
+
+    </form>
+</div> 
+
+
+ 
