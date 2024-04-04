@@ -2,6 +2,7 @@ package com.cabBooker.cabBookingApplication.admin;
 
 import com.cabBooker.cabBookingApplication.cab.Cab;
 import com.cabBooker.cabBookingApplication.cab.CabService;
+import com.cabBooker.cabBookingApplication.cab.displayAllCabException;
 import com.cabBooker.cabBookingApplication.cabAgency.CabAgency;
 import com.cabBooker.cabBookingApplication.cabAgency.CabAgencySerivce;
 import com.cabBooker.cabBookingApplication.customer.Customer;
@@ -44,8 +45,7 @@ public class AdminController {
 
     /** Display all registered cabs*/
     @GetMapping("/cabs")
-    public List<Cab> displayAllCabs()
-    {
+    public List<Cab> displayAllCabs() throws displayAllCabException {
         return this.cabService.displayAllCabs();
     }
 

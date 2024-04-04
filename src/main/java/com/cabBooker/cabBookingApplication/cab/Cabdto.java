@@ -1,14 +1,10 @@
 package com.cabBooker.cabBookingApplication.cab;
 
-import com.cabBooker.cabBookingApplication.driver.Driver;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-
 @Entity
-public class Cab {
-
+public class Cabdto {
     @Id
     @GeneratedValue
     private Integer cabId;
@@ -23,18 +19,10 @@ public class Cab {
     private Double fair;
     private Integer CabAgencyId;
 
-
-
-
-    @OneToOne
-    private Driver driver;
-
-    public Cab()
-    {
-        super();
+    public Cabdto() {
     }
-    public Cab(Integer cabId, String cabModel, Boolean AC, Integer numberOfSeats, Integer vehicleNumber, Boolean availability, Integer CabAgencyId,String agencyName, String pickUpPoint, String dropPoint, Double fair, Driver driver) {
-        super();
+
+    public Cabdto(Integer cabId, String cabModel, Boolean AC, Integer numberOfSeats, Integer vehicleNumber, Boolean availability, String agencyName, String pickUpPoint, String dropPoint, Double fair, Integer cabAgencyId) {
         this.cabId = cabId;
         this.cabModel = cabModel;
         this.AC = AC;
@@ -45,8 +33,7 @@ public class Cab {
         this.pickUpPoint = pickUpPoint;
         this.dropPoint = dropPoint;
         this.fair = fair;
-        this.driver = driver;
-        this.CabAgencyId=CabAgencyId;
+        CabAgencyId = cabAgencyId;
     }
 
     public Integer getCabId() {
@@ -129,13 +116,6 @@ public class Cab {
         this.fair = fair;
     }
 
-    public Driver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
     public Integer getCabAgencyId() {
         return CabAgencyId;
     }
@@ -146,7 +126,7 @@ public class Cab {
 
     @Override
     public String toString() {
-        return "Cab{" +
+        return "Cabdto{" +
                 "cabId=" + cabId +
                 ", cabModel='" + cabModel + '\'' +
                 ", AC=" + AC +
@@ -158,9 +138,6 @@ public class Cab {
                 ", dropPoint='" + dropPoint + '\'' +
                 ", fair=" + fair +
                 ", CabAgencyId=" + CabAgencyId +
-                ", driver=" + driver +
                 '}';
     }
 }
-
-
