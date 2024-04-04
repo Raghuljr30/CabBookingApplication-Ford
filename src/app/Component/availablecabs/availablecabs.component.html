@@ -1,0 +1,46 @@
+<p>availablecabs works!</p>
+
+<div>
+    <h3> LIST OF AVAILABLE CABS </h3>
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    
+    <h3 *ngIf="cabs.length <1"> No Cabs found</h3>
+<table class = "table table-striped" *ngIf="cabs.length>0" >
+    <thead>
+        <tr>
+            <th> Cab Id</th>
+            <th> Cab Model</th>
+            <th> AC </th>
+            <th>numberOfSeats</th>
+            <th>vehicleNumber</th>
+            <th> availabilty </th>
+            <th>agency name</th>
+            <th>PickUpPoint</th>
+            <th>DropPoint</th>
+            <th>fair</th>
+            <th>CabAgencyID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let cab of cabs" >
+            <td> {{ cab.cabId}} </td>
+            <td> {{ cab.cabModel }} </td>
+            <td> {{ cab.AC}} </td>
+            <td>{{cab.numberOfSeats}}</td>
+            <td>{{cab.vehicleNumber}}</td>
+            <td>{{cab.availability}}</td>
+            <td>{{cab.agencyName}}</td>
+            <td>{{cab.pickUpPoint}}</td>
+            <td>{{cab.dropPoint}} </td>
+            <td>{{cab.fair}}</td>
+            <td>{{cab.cabAgencyId}}</td>
+            <button (click) ="updateCab(cab.cabId)" class="btn-btn-info">Update</button>
+        </tr>
+    </tbody>
+</table>

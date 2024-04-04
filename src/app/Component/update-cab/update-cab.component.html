@@ -1,0 +1,60 @@
+<p>update-cab works!</p>
+<h2>Update Cab</h2>
+
+<div>
+   
+    <div *ngIf="message" class="alert alert-success">
+        <p> {{message}}</p>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        <p> {{errorMessage}}</p>
+    </div>
+    <form>
+        
+        <label for="CabModel">CabModel</label><br>
+        <input type="text" id="name" name="name" [(ngModel)]="cab.cabModel"><br>
+       
+        <label for="AC">AC</label><br>
+        <input type="text" id="name" name="name" [(ngModel)]="cab.AC" placeholder="True/False"><br>
+
+        
+       
+        <label for="Number of seats">Number of seats</label><br>
+        <input type="number" id="number" name="seats" [(ngModel)]="cab.numberOfSeats" required><br>
+
+        <label for="vehicleNumber">vehicleNumber</label><br>
+        <input type="number" id="number" name="vehicleNumber" [(ngModel)]="cab.vehicleNumber" required="Vehicle Number is Required"><br>
+
+        <label for="availability">availability</label><br>
+        <input type="availability" id="name" name="availability" [(ngModel)]="cab.availability" placeholder="True/False"><br>
+
+
+        <label for="pickuppoint">PickUpPoint</label><br>
+        <input type="name" id="name" name="pickuppoint" [(ngModel)]="cab.pickUpPoint"><br>
+
+        <label for="dropPoint">DropPoint</label><br>
+        <input type="name" id="name" name="dropPoint" [(ngModel)]="cab.dropPoint"><br>
+
+        <label for="fair">Fair</label><br>
+        <input type="number" id="fair" name="fair" [(ngModel)]="cab.fair"><br>
+
+        <label for="CabAgencyId">CabAgencyID</label><br>
+        <input type="number" id="ID" name="ID" [(ngModel)]="cab.cabAgencyId"><br>
+
+        <label for="CabAgency">AgencyName</label><br>
+        <input type="name"  id="agency" name="agency" [(ngModel)]="cab.agencyName"><br>
+    
+        <input type="submit" (click)="updateCabdetails()"  class="btn btn-success" value="UpdateCab">
+
+        
+
+        
+
+  
+
+
+    </form>
+</div> 
+
+
+ 
