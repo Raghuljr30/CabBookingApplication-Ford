@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 
 public class CabAgencyServiceImplementation implements CabAgencySerivce{
     
-    @Autowired
-    private BookingRepository bookingRepository;
+
     
 
     @Autowired
@@ -50,6 +50,24 @@ public class CabAgencyServiceImplementation implements CabAgencySerivce{
         cabAgency.setDrivers(drivers);
 
         return this.cabAgencyRepository.save(cabAgency);
+    }
+
+    @Override
+    public CabAgency mapCabAgencyIdAndCab(Integer agencyId) {
+//        CabAgency cabAgency=this.cabAgencyRepository.findById(agencyId).get();
+//        List<Cab> cabList= (List<Cab>) this.cabRepository.findById(agencyId).get();
+//        List<Driver> driverList=(List<Driver>)this.driverRepository.findById(agencyId).get();
+//        cabAgency.setCabs(cabList);
+//        cabAgency.setDrivers(driverList);
+        Optional<CabAgency> optionalCabAgency=this.cabAgencyRepository.findById(agencyId);
+        CabAgency cabAgencyExist=optionalCabAgency.get();
+      List<Cab> cabList=(List<Cab>) this.cabRepository.findById(agencyId).get();
+
+        cabAgencyExist.setCabs(cabList);
+
+
+       return cabAgencyRepository.save(cabAgencyExist);
+
     }
 
 

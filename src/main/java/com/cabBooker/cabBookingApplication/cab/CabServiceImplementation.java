@@ -26,9 +26,9 @@ public class CabServiceImplementation implements CabService{
         return this.cabRepository.findAll();
     }
 
-    public List<Cab> availableCabs(){
-        return this.cabRepository.findAll();
-    }
+//    public List<Cab> availableCabs(){
+//        return this.cabRepository.findAll();
+//    }
 
     @Override
     public Cab mapCabAndDriver(Integer vehicleNumber, Integer driverVehiclenumber) {

@@ -2,43 +2,46 @@ package com.cabBooker.cabBookingApplication.customer;
 
 import com.cabBooker.cabBookingApplication.booking.Booking;
 import com.cabBooker.cabBookingApplication.cab.Cab;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+@Service
 
 public interface CustomerService {
 
-    public Customer registerNewCustomer(Customer customer);
-    public List<Customer> displayAllCustomers();
-    public Customer findCustomer(Integer customerId);
+    public Customer registerNewCustomer(Customer customer) throws CustomerException;
+    public List<Customer> displayAllCustomers() throws CustomerListEmptyException;
+    public Customer findCustomer(Integer customerId) throws CustomerException;
 
     Customer getCustomerById(Integer customerId);
 
-    List<Booking> allBookings(List<Booking> customerBookings);
+    List<Booking> allBookings() throws CustomerListEmptyException;
 
-    Customer viewCustomer(Integer customerID, String customerPassword);
+    Customer viewCustomer(Integer customerID, String customerPassword) throws CustomerException;
 
 
 
-    public Customer deleteCustomerById(Integer customerId);
+    public Customer deleteCustomerById(Integer customerId) throws CustomerException;
 
-    Customer updateCustomerMobile(Integer customerId, Long customerMobileNumber);
+    Customer updateCustomerMobile(Integer customerId, Long customerMobileNumber) throws  CustomerException;
 
     //Customer updateCustomerEmail(Integer customerId, String customerEmail);
 
-    Customer updateCustomerPassword(Integer customerId, String customerPassword);
-
-    List<Booking> filterBookingByFair(Double cabFair);
-
-    Double cabFairById(Integer cabAgencyId, Integer cabId);
-
-    Customer updateCustomer(Customer customer);
+    Customer updateCustomerPassword(Integer customerId, String customerPassword) throws CustomerException;
 
 
-    //   List<Cab> availableCabs(String cabAgency, String pickUpLocation, String dropLocation, LocalDate bookingDate);
 
-    //boolean isExistingCustomer(Integer customerId);
-//    public Customer bookCab(Integer customerId,String pickUpLocation,String dropLocation);
+
+
+   // Customer updateCustomer(Customer customer) throws CustomerException;
+
+    List<Customer> allCustomers();
+
+    //Customer loginCustomer(String customerName, String customerPassword);
+
+    Customer viewProfile(Integer customerId) throws CustomerException;
+
 
 
 }

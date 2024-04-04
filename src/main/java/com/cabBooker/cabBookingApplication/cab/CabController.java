@@ -14,7 +14,7 @@ public class CabController {
 
 
     /** New Cab Registration*/
-    @PostMapping("/cab")
+    @PostMapping("/cab/register")
     public Cab registerCab(@RequestBody Cab cab)
     {
         return this.cabService.registerNewCab(cab);
@@ -23,14 +23,14 @@ public class CabController {
 
     /** Mapping cab and respective Driver  */
 
-    @PatchMapping("/cab-driver/{vehiclenumber}/{drivervehiclenumber}")
+    @PatchMapping("/cab/driver/{vehiclenumber}/{drivervehiclenumber}")
     public Cab mapCabAndDriver(@PathVariable("vehiclenumber")Integer vehicleNumber,
                                @PathVariable("drivervehiclenumber")Integer drivervehiclenumber)
     {
         return this.cabService.mapCabAndDriver(vehicleNumber,drivervehiclenumber);
     }
 
-    @GetMapping("/cabs/{pickUpPoint}/{dropPoint}")
+    @GetMapping("/cab/location/{pickUpPoint}/{dropPoint}")
     public List<Cab> availableCabs(@PathVariable("pickUpPoint") String pickupPoint, @PathVariable("dropPoint") String dropPoint){
         return this.cabService.availableCabs(pickupPoint,dropPoint);
     }

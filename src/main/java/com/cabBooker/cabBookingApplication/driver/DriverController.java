@@ -12,7 +12,7 @@ public class DriverController {
     private DriverService driverService;
 
     /** Driver Registration */
-    @PostMapping("/driver")
+    @PostMapping("/driver/register")
     public Driver registerDriver(@RequestBody Driver driver)
     {
         return this.driverService.registerNewDriver(driver);

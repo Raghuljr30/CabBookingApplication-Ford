@@ -12,4 +12,5 @@ public interface CabAgencySerivce {
     public  CabAgency mapCabAgencyAndCab(String agencyname);
 
 
+    CabAgency mapCabAgencyIdAndCab(Integer agencyId);
 }

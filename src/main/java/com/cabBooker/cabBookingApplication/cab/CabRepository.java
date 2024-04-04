@@ -10,6 +10,7 @@ public interface CabRepository extends JpaRepository<Cab,Integer> {
 
     List<Cab> findByAgencyName(String agencyName);
 
+
     List<Cab> findByPickUpPointAndDropPoint(String pickUpLocation,String dropLocation);
 
  }

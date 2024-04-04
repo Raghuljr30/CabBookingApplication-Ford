@@ -1,10 +1,12 @@
 package com.cabBooker.cabBookingApplication.admin;
 
+import com.cabBooker.cabBookingApplication.booking.BookingService;
 import com.cabBooker.cabBookingApplication.cab.Cab;
 import com.cabBooker.cabBookingApplication.cab.CabService;
 import com.cabBooker.cabBookingApplication.cabAgency.CabAgency;
 import com.cabBooker.cabBookingApplication.cabAgency.CabAgencySerivce;
 import com.cabBooker.cabBookingApplication.customer.Customer;
+import com.cabBooker.cabBookingApplication.customer.CustomerListEmptyException;
 import com.cabBooker.cabBookingApplication.customer.CustomerRepository;
 import com.cabBooker.cabBookingApplication.customer.CustomerService;
 import com.cabBooker.cabBookingApplication.driver.Driver;
@@ -30,8 +32,8 @@ public class AdminController {
     @Autowired
     private DriverService driverService;
 
-    @Autowired
-    private AdminService adminService;
+
+
 
 
 
@@ -39,7 +41,11 @@ public class AdminController {
     @GetMapping("/customers")
     public List<Customer> displayAllCustomers()
     {
-        return this.customerService.displayAllCustomers();
+        try {
+            return this.customerService.displayAllCustomers();
+        } catch (CustomerListEmptyException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /** Display all registered cabs*/
